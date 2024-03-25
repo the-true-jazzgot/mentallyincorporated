@@ -12,7 +12,7 @@ import { TicketComponent } from '../ticket/ticket.component';
 })
 
 export class TicketingContainerComponent {
-  HEROES = [
+  TICKETS = [
     {id: 1, name:'Superman'},
     {id: 2, name:'Batman'},
     {id: 5, name:'BatGirl'},
