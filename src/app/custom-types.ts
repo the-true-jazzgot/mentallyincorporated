@@ -1,0 +1,1 @@
+export type Status = "New" | "Created" | "Open" | "Active" | "Closed" | "Deleted";

@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { TicketComponent } from '../ticket/ticket.component';
 
+import { Ticket } from '../interfaces/Ticket';
+
 @Component({
   selector: 'app-ticketing-container',
   standalone: true,
@@ -12,11 +14,30 @@ import { TicketComponent } from '../ticket/ticket.component';
 })
 
 export class TicketingContainerComponent {
-  TICKETS = [
-    {id: 1, name:'Superman'},
-    {id: 2, name:'Batman'},
-    {id: 5, name:'BatGirl'},
-    {id: 3, name:'Robin'},
-    {id: 4, name:'Flash'}
+  TICKETS: Ticket[] = [
+    {
+      id: 1, 
+      title:'Superman',
+      status: "Active"
+    },
+    {
+      id: 2, 
+      title:'Batman',
+      status: "Open"
+    },
+    {id: 5, 
+      title:'BatGirl',
+      status: "Open"
+    },
+    {
+      id: 3, 
+      title:'Robin',
+      status: "Open"
+    },
+    {
+      id: 4, 
+      title:'Flash',
+      status: "Active"
+    }
   ];
 }
