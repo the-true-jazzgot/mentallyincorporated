@@ -1,1 +1,1 @@
-export type Status = "New" | "Created" | "Open" | "Active" | "Closed" | "Deleted";
+export type TicketStatus = "New" | "Created" | "Open" | "Active" | "Closed" | "Deleted";
