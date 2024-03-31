@@ -2,15 +2,16 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { TicketComponent } from '../ticket/ticket.component';
+import { CreateTicketFormComponent } from "../create-ticket-form/create-ticket-form.component";
 
 import { Ticket } from '../interfaces/Ticket';
 
 @Component({
-  selector: 'app-ticketing-container',
-  standalone: true,
-  imports: [CommonModule, TicketComponent],
-  templateUrl: './ticketing-container.component.html',
-  styleUrl: './ticketing-container.component.scss'
+    selector: 'app-ticketing-container',
+    standalone: true,
+    templateUrl: './ticketing-container.component.html',
+    styleUrl: './ticketing-container.component.scss',
+    imports: [CommonModule, TicketComponent, CreateTicketFormComponent]
 })
 
 export class TicketingContainerComponent {
