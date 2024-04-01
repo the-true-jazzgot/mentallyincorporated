@@ -9,11 +9,12 @@ import { Ticket } from "../interfaces/Ticket"
 })
 
 export class TicketService {
+  constructor(private httpClient:HttpClient) { }
+
   apiServer: string = "http://localhost:8080";
 
-  constructor(private httpClient: HttpClient) { }
-
   public createTicket(ticketData: Ticket): Observable<Ticket> {
+    console.log("attempting ticket creation");
     return this.httpClient.post<Ticket>(`${this.apiServer}/ticket/create`, ticketData);
   }
 }

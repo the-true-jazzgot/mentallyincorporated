@@ -1,4 +1,4 @@
-import { Component, OnInit, input } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { Ticket } from "../interfaces/Ticket"
 import { TicketService } from '../services/ticket.service';
@@ -20,11 +20,11 @@ export class CreateTicketFormComponent {
     description: "string"
   }
 
-  constructor(private ticketService:TicketService ) {
+  constructor(private ticketService: TicketService) {
   }
 
-  createTicket(ticket = this.tempTicketData) {
-    this.ticketService.createTicket(ticket);
+  createTicket() {
+    this.ticketService.createTicket(this.tempTicketData);
   }
 
 }

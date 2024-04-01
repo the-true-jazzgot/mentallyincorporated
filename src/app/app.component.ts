@@ -3,8 +3,6 @@ import { RouterOutlet } from '@angular/router';
 
 import { TicketingContainerComponent } from './ticketing-container/ticketing-container.component';
 
-import { FormsModule } from '@angular/forms';
-
 @Component({
   selector: 'app-root',
   standalone: true,
