@@ -4,7 +4,9 @@ import { CommonModule } from '@angular/common';
 import { TicketComponent } from '../ticket/ticket.component';
 import { CreateTicketFormComponent } from "../create-ticket-form/create-ticket-form.component";
 
-import { Ticket } from '../interfaces/Ticket';
+import { PersonalTicket, SystemTicket } from '../interfaces/Ticket';
+
+import { UsersService } from '../services/users.service';
 
 @Component({
     selector: 'app-ticketing-container',
@@ -15,30 +17,40 @@ import { Ticket } from '../interfaces/Ticket';
 })
 
 export class TicketingContainerComponent {
-  TICKETS: Ticket[] = [
+  constructor(private usersService: UsersService) {}
+
+  TICKETS: SystemTicket | PersonalTicket[] = [
     {
-      id: 1, 
-      title:'Superman',
-      status: "Active"
+      id: 1,
+      title: 'Superman',
+      status: "Active",
+      createdBy: this.usersService.getLoggedInUser()
     },
     {
-      id: 2, 
-      title:'Batman',
-      status: "Open"
-    },
-    {id: 5, 
-      title:'BatGirl',
-      status: "Open"
+      id: 2,
+      title: 'Batman',
+      status: "Open",
+      createdBy: this.usersService.getLoggedInUser()
     },
     {
-      id: 3, 
-      title:'Robin',
-      status: "Open"
+      id: 5,
+      title: 'BatGirl',
+      status: "Open",
+      createdBy: this.usersService.getLoggedInUser()
     },
     {
-      id: 4, 
-      title:'Flash',
-      status: "Active"
+      id: 3,
+      title: 'Robin',
+      status: "Open",
+      createdBy: this.usersService.getLoggedInUser()
+    },
+    {
+      id: 4,
+      title: 'Flash',
+      status: "Active",
+      createdBy: this.usersService.getLoggedInUser()
     }
   ];
+
+  
 }

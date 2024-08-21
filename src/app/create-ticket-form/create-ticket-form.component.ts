@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 
-import { Ticket } from "../interfaces/Ticket"
+import { PersonalTicket, SystemTicket } from "../interfaces/Ticket"
 import { TicketService } from '../services/ticket.service';
+import { UsersService } from '../services/users.service';
 
 @Component({
   selector: 'app-create-ticket-form',
@@ -13,14 +14,17 @@ import { TicketService } from '../services/ticket.service';
 
 export class CreateTicketFormComponent {
 
-  tempTicketData: Ticket = {
+
+
+  constructor(private ticketService: TicketService, private usersService:UsersService) {
+  }
+
+  tempTicketData: PersonalTicket = {
     id: 1,
     title: "string",
     status: "New",
-    description: "string"
-  }
-
-  constructor(private ticketService: TicketService) {
+    description: "string",
+    createdBy: this.usersService.getLoggedInUser()
   }
 
   createTicket() {

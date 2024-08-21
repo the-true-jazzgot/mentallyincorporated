@@ -1,15 +1,20 @@
 import { TicketStatus } from "../custom-types";
 import { VUser, RUser} from "./User";
 
-export interface Ticket {
+interface Ticket {
     readonly id: number, // (Type ID?)
     title: string,
     status: TicketStatus,
     description?: string,
-    date?: Date,
-    assignedTo?: VUser | RUser
+    creationDate?: Date,
+    assignedTo?: VUser | RUser,
+    owner?: VUser
 }
 
 export interface PersonalTicket extends Ticket {
-    owner: RUser
+    createdBy: RUser
+}
+
+export interface SystemTicket extends Ticket {
+    createdBy: VUser
 }

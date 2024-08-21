@@ -8,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './ticket.component.scss'
 })
 export class TicketComponent {
+  name: any;
 
 }
