@@ -1,11 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { RUser, VUser } from '../interfaces/User';
+import { RUser, User, VUser } from '../interfaces/User';
 
 @Injectable({
   providedIn: 'root'
 })
-
 export class UsersService {
   constructor(private httpClient:HttpClient) { }
 
@@ -27,5 +26,9 @@ export class UsersService {
   /* TEMPORARY! */
   public getDefaultSystemUser():VUser {
     return this.defaultVUser;
+  }
+
+  public getAllUsers():User[] {
+    return [this.getLoggedInUser(), this.getDefaultSystemUser()];
   }
 }

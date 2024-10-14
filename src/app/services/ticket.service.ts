@@ -2,23 +2,30 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { PersonalTicket, SystemTicket } from "../interfaces/Ticket"
+import { Ticket } from "../interfaces/Ticket"
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class TicketService {
-  constructor(private httpClient:HttpClient) { }
+  constructor(private httpClient:HttpClient) {}
 
-  apiServer: string = "http://localhost:3000/tickets_proto";
+  private apiServer: string = "http://localhost:3000/personal_tickets";
 
-  public createTicket(ticketData: PersonalTicket): Observable<PersonalTicket> {
-    console.log("attempting ticket creation");
-    return this.httpClient.post<PersonalTicket>(`${this.apiServer}/ticket/create`, ticketData);
+  public createTicket(ticketData: Ticket): Observable<Ticket> {
+    return this.httpClient.post<Ticket>(
+      this.apiServer, 
+      ticketData,
+      {headers: {
+        "Content-Type": "application/json"
+      }}
+    );
   }
 
-  // public getTickets(start: number = 1, limit: number = 10):Observable<Ticket[]> {
-    
-  // }
+  public getTickets(start: number = 1, limit: number = 10):Observable<Ticket[]> {
+    return this.httpClient.get<Ticket[]>(
+      this.apiServer
+    );
+  }
 }

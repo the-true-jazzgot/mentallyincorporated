@@ -1,1 +1,9 @@
-<button (click)="createTicket()">Create ticket</button>
+<form [formGroup]="createTicketForm" (ngSubmit)="createTicket()">
+  <input type="text" id="title" formControlName="title">
+  <input type="text" id="description" formControlName="description">
+  <select name="assignedTo" id="assignedTo" formControlName="assignedTo">
+    <option *ngFor="let item of users" value="item.name">{{item.name}}</option>
+    <option value="" [selected]="true">-- Assign ticket later --</option>
+  </select>
+  <button [disabled]="!createTicketForm.valid">Create ticket</button>
+</form>

@@ -4,9 +4,10 @@ import { CommonModule } from '@angular/common';
 import { TicketComponent } from '../ticket/ticket.component';
 import { CreateTicketFormComponent } from "../create-ticket-form/create-ticket-form.component";
 
-import { PersonalTicket, SystemTicket } from '../interfaces/Ticket';
+import { Ticket } from '../interfaces/Ticket';
 
 import { UsersService } from '../services/users.service';
+import { TicketService } from '../services/ticket.service';
 
 @Component({
     selector: 'app-ticketing-container',
@@ -17,40 +18,12 @@ import { UsersService } from '../services/users.service';
 })
 
 export class TicketingContainerComponent {
-  constructor(private usersService: UsersService) {}
+  tickets!:Ticket[];
+  
+  constructor(private usersService: UsersService, private ticketService: TicketService) {};
 
-  TICKETS: SystemTicket | PersonalTicket[] = [
-    {
-      id: 1,
-      title: 'Superman',
-      status: "Active",
-      createdBy: this.usersService.getLoggedInUser()
-    },
-    {
-      id: 2,
-      title: 'Batman',
-      status: "Open",
-      createdBy: this.usersService.getLoggedInUser()
-    },
-    {
-      id: 5,
-      title: 'BatGirl',
-      status: "Open",
-      createdBy: this.usersService.getLoggedInUser()
-    },
-    {
-      id: 3,
-      title: 'Robin',
-      status: "Open",
-      createdBy: this.usersService.getLoggedInUser()
-    },
-    {
-      id: 4,
-      title: 'Flash',
-      status: "Active",
-      createdBy: this.usersService.getLoggedInUser()
-    }
-  ];
-
+  ngOnInit() {
+    this.ticketService.getTickets().subscribe((tickets: Ticket[]) => this.tickets = tickets);
+  }
   
 }

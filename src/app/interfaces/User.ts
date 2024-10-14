@@ -6,7 +6,7 @@ export interface User {
 }
 
 export interface VUser extends User {
-    entity: Entity;
+    entity: Entity; //COPY: reconsider entity identity
     email?: string;
 }
 
