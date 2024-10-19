@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Ticket } from "../interfaces/Ticket"
-import { TicketService } from '../services/ticket.service';
-import { UsersService } from '../services/users.service';
+import { Ticket } from "../../interfaces/Ticket"
+import { TicketService } from '../../services/ticket.service';
+import { UsersService } from '../../services/users.service';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RUser, User, VUser } from '../interfaces/User';
+import { RUser, User, VUser } from '../../interfaces/User';
 
 @Component({
   selector: 'app-create-ticket-form',

@@ -4,10 +4,10 @@ import { CommonModule } from '@angular/common';
 import { TicketComponent } from '../ticket/ticket.component';
 import { CreateTicketFormComponent } from "../create-ticket-form/create-ticket-form.component";
 
-import { Ticket } from '../interfaces/Ticket';
+import { Ticket } from '../../interfaces/Ticket';
 
-import { UsersService } from '../services/users.service';
-import { TicketService } from '../services/ticket.service';
+import { UsersService } from '../../services/users.service';
+import { TicketService } from '../../services/ticket.service';
 
 @Component({
     selector: 'app-ticketing-container',

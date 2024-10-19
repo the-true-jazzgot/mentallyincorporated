@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-
-import { TicketingContainerComponent } from './ticketing-container/ticketing-container.component';
+import { TicketingContainerComponent } from '../components/ticketing-container/ticketing-container.component';
 
 @Component({
   selector: 'app-root',
