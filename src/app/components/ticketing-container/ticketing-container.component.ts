@@ -5,7 +5,7 @@ import { CreateTicketFormComponent } from "../create-ticket-form/create-ticket-f
 import { UsersService } from '../../services/users.service';
 import { TicketService } from '../../services/ticket.service';
 import { Store } from '@ngrx/store';
-import { fetchTickets } from '../../store/tickets/tickets.actions';
+import { fetchTickets } from '../../store/tickets/ticket.actions';
 import { selectAllTickets } from '../../store/tickets/ticket.selectors';
 import { AppState } from '../../store/app.store';
 import { Observable } from 'rxjs';

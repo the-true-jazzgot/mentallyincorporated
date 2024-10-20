@@ -1,6 +1,6 @@
 import { QueryStatus, Ticket } from "../../types"
 import { createReducer, on } from "@ngrx/store";
-import { createTicket, fetchTickets, updateTicket } from "./tickets.actions";
+import { createTicket, fetchTickets, updateTicket } from "./ticket.actions";
 
 export interface TicketsState {
   status: QueryStatus

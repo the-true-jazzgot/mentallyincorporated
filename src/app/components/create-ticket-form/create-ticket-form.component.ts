@@ -4,7 +4,7 @@ import { TicketService } from '../../services/ticket.service';
 import { UsersService } from '../../services/users.service';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { createTicket } from '../../store/tickets/tickets.actions';
+import { createTicket } from '../../store/tickets/ticket.actions';
 import { RUser, Ticket, User, VUser } from '../../types';
 
 @Component({
