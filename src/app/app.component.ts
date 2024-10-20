@@ -7,8 +7,7 @@ import { TicketingContainerComponent } from './components/ticketing-container/ti
   standalone: true,
   imports: [
     RouterOutlet, 
-    TicketingContainerComponent,
-    StoreModule.forRoot({})
+    TicketingContainerComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
