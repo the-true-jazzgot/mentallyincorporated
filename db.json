@@ -1,37 +1,6 @@
 {
   "personal_tickets": [
     {
-      "id": "number",
-      "title": "string",
-      "status": "TicketStatus",
-      "description": "string",
-      "creationDate": "Date",
-      "assignedTo": "VUser | RUser",
-      "owner": "VUser"
-    },
-    {
-      "id": "8493.401024228133",
-      "title": "Test temp data",
-      "status": "New",
-      "description": "string",
-      "createdBy": {
-        "email": "default@user.xyz",
-        "name": "Default Name"
-      },
-      "creationDate": "2024-10-14T00:33:12.928Z"
-    },
-    {
-      "id": "8493.401024228133",
-      "title": "Test temp data",
-      "status": "New",
-      "description": "string",
-      "createdBy": {
-        "email": "default@user.xyz",
-        "name": "Default Name"
-      },
-      "creationDate": "2024-10-14T00:33:12.928Z"
-    },
-    {
       "id": "8296",
       "title": "Test temp data",
       "status": "New",
