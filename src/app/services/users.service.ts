@@ -10,7 +10,8 @@ export class UsersService {
 
   defaultRUser: RUser = {
     email: "default@user.xyz",
-    name: "Default Name"
+    name: "Default Name",
+    password: ''
   }
 
   defaultVUser: VUser = {
