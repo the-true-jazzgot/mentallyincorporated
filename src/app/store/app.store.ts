@@ -1,4 +1,5 @@
-export interface AppStateInterface {
-  user: UserStoreInterface,
-  tickets: TicketsStoreInterface
+import { TicketsState } from "./tickets/ticket.reducer";
+
+export interface AppState {
+  tickets: TicketsState
 }

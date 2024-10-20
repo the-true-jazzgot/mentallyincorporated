@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Ticket } from "../../interfaces/Ticket"
 import { TicketService } from '../../services/ticket.service';
 import { UsersService } from '../../services/users.service';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RUser, User, VUser } from '../../interfaces/User';
+import { Store } from '@ngrx/store';
+import { createTicket } from '../../store/tickets/tickets.actions';
+import { RUser, Ticket, User, VUser } from '../../types';
 
 @Component({
   selector: 'app-create-ticket-form',
@@ -17,8 +18,11 @@ import { RUser, User, VUser } from '../../interfaces/User';
 export class CreateTicketFormComponent {
   users!: User[];
 
-  constructor(private ticketService: TicketService, private usersService:UsersService) {
-  }
+  constructor(
+    private ticketService: TicketService, 
+    private usersService:UsersService,
+    private store:Store
+  ) {}
 
   ngOnInit(){
     this.users = this.usersService.getAllUsers();
@@ -34,7 +38,7 @@ export class CreateTicketFormComponent {
     return Math.floor(Math.random() * 9999).toString();
   }
 
-  ticketData: ()=>Ticket = ():Ticket => {
+  ticketData: ()=>Ticket = () => {
     if(!this.createTicketForm.controls.title.value || !this.createTicketForm.controls.description.value) throw new Error("O borze zielony!")
     return {
       id: this.getRandId(),
@@ -43,11 +47,13 @@ export class CreateTicketFormComponent {
       description: this.createTicketForm.controls.description.value,
       createdBy: this.usersService.getLoggedInUser(),
       creationDate: new Date(),
-      assignedTo: this.createTicketForm.controls.assignedTo.value ? this.createTicketForm.controls.assignedTo.value: undefined
-    }
+      assignedTo: this.createTicketForm.controls.assignedTo.value ? this.createTicketForm.controls.assignedTo.value: undefined,
+      serverSync: false
+    } as Ticket;
   }
 
   createTicket():void {
-    this.ticketService.createTicket(this.ticketData()).subscribe(response => console.log(response));
+    // this.ticketService.createTicket(this.ticketData()).subscribe(response => console.log(response));
+    this.store.dispatch(createTicket(this.ticketData()));
   }
 }
