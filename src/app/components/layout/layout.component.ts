@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { TicketingContainerComponent } from "../ticketing-container/ticketing-container.component";
+import { ToastContainerComponent } from "../toast-container/toast-container.component";
 
 @Component({
   selector: 'app-layout',
   standalone: true,
-  imports: [TicketingContainerComponent],
+  imports: [TicketingContainerComponent, ToastContainerComponent],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.scss'
 })

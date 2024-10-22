@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
@@ -18,7 +18,7 @@ import { createTicket } from '../../../store/tickets/ticket.actions';
   styleUrl: './create-ticket-form.component.scss'
 })
 
-export class CreateTicketFormComponent {
+export class CreateTicketFormComponent implements OnInit{
   private activeUser$:Observable<RUser> = this.store.select(selectUserData)
   private activeUser!:RUser;
   users!: User[];

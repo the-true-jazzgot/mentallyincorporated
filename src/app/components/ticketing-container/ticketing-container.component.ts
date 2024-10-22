@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UsersService } from '../../services/users.service';
 import { TicketService } from '../../services/ticket.service';
@@ -19,7 +19,7 @@ import { Ticket } from '../../types';
     imports: [CommonModule, TicketComponent, CreateTicketFormComponent]
 })
 
-export class TicketingContainerComponent {
+export class TicketingContainerComponent implements OnInit {
   public allTickets$:Observable<Ticket[]> = this.store.select(selectAllTickets);
   
   constructor(

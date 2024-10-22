@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Ticket } from '../../../types';
 
 @Component({
@@ -9,7 +9,7 @@ import { Ticket } from '../../../types';
   styleUrl: './ticket.component.scss'
 })
 
-export class TicketComponent {
+export class TicketComponent implements OnInit{
   @Input()
   ticket!: Ticket;
   name!: string;
