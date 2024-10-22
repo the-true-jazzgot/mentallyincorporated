@@ -12,5 +12,5 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(withFetch()),
     { provide: UsersService },
     provideStore()
-]
+  ]
 };
