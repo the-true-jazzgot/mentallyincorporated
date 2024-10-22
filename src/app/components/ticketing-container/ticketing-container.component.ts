@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TicketComponent } from '../ticket/ticket.component';
-import { CreateTicketFormComponent } from "../create-ticket-form/create-ticket-form.component";
 import { UsersService } from '../../services/users.service';
 import { TicketService } from '../../services/ticket.service';
 import { Store } from '@ngrx/store';
 import { fetchTickets } from '../../store/tickets/ticket.actions';
 import { selectAllTickets } from '../../store/tickets/ticket.selectors';
-import { AppState } from '../../store/app.store';
+import { AppStore } from '../../store/app.store';
 import { Observable } from 'rxjs';
+import { TicketComponent } from './ticket/ticket.component';
+import { CreateTicketFormComponent } from './create-ticket-form/create-ticket-form.component';
 import { Ticket } from '../../types';
 
 @Component({
@@ -25,7 +25,7 @@ export class TicketingContainerComponent {
   constructor(
     private usersService: UsersService, 
     private ticketService: TicketService,
-    private store: Store<AppState>
+    private store: Store<AppStore>
   ) {};
 
   ngOnInit() {

@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TicketService } from '../../services/ticket.service';
-import { UsersService } from '../../services/users.service';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { createTicket } from '../../store/tickets/ticket.actions';
-import { RUser, Ticket, User, VUser } from '../../types';
+import { Observable, take } from 'rxjs';
+import { selectUserData } from '../../../store/user/user.selectors';
+import { RUser, Ticket, User, VUser } from '../../../types';
+import { TicketService } from '../../../services/ticket.service';
+import { UsersService } from '../../../services/users.service';
+import { AppStore } from '../../../store/app.store';
+import { createTicket } from '../../../store/tickets/ticket.actions';
 
 @Component({
   selector: 'app-create-ticket-form',
@@ -16,16 +19,20 @@ import { RUser, Ticket, User, VUser } from '../../types';
 })
 
 export class CreateTicketFormComponent {
+  private activeUser$:Observable<RUser> = this.store.select(selectUserData)
+  private activeUser!:RUser;
   users!: User[];
 
   constructor(
     private ticketService: TicketService, 
     private usersService:UsersService,
-    private store:Store
+    private store:Store<AppStore>
   ) {}
 
   ngOnInit(){
     this.users = this.usersService.getAllUsers();
+    const sub = this.activeUser$.subscribe(user => this.activeUser = user);
+    sub.unsubscribe();
   }
 
   createTicketForm = new FormGroup({
@@ -38,18 +45,18 @@ export class CreateTicketFormComponent {
     return Math.floor(Math.random() * 9999).toString();
   }
 
-  ticketData: ()=>Ticket = () => {
+  ticketData():Ticket {
     if(!this.createTicketForm.controls.title.value || !this.createTicketForm.controls.description.value) throw new Error("O borze zielony!")
     return {
       id: this.getRandId(),
       title: this.createTicketForm.controls.title.value,
       status: "New",
       description: this.createTicketForm.controls.description.value,
-      createdBy: this.usersService.getLoggedInUser(),
+      createdBy: this.activeUser,
       creationDate: new Date(),
       assignedTo: this.createTicketForm.controls.assignedTo.value ? this.createTicketForm.controls.assignedTo.value: undefined,
       serverSync: false
-    } as Ticket;
+    };
   }
 
   createTicket():void {
