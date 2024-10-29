@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Toast } from '../toast-container.component';
 
 @Component({
   selector: 'app-toast',
@@ -7,6 +8,12 @@ import { Component } from '@angular/core';
   templateUrl: './toast.component.html',
   styleUrl: './toast.component.scss'
 })
-export class ToastComponent {
+export class ToastComponent implements OnInit{
+  @Input()
+  toast!: Toast;
+  message!:string;
 
+  ngOnInit():void {
+    this.message = this.toast.message
+  }
 }

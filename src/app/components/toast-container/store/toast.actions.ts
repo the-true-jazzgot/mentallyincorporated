@@ -2,6 +2,11 @@ import { createAction, props } from "@ngrx/store";
 import { Toast } from "../toast-container.component";
 
 export const addToastFromEffect = createAction(
-  '[Toast effect] Create toast',
-  props<Toast>
+  '[Effect ...] Create toast',
+  props<Toast>()
 );
+
+export const removeToast = createAction(
+  '[Toast] Remove toast',
+  props<{message:string}>()
+)
