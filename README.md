@@ -1,6 +1,10 @@
 # Mentallyincorporated
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.3.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.10.
+
+## Running application locally
+
+To start run `npm install` after cloning this repository to your machine. 
 
 ## Development server
 
