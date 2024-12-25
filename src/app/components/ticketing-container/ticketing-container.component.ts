@@ -15,7 +15,8 @@ import { Ticket } from '../../types';
     selector: 'app-ticketing-container',
     templateUrl: './ticketing-container.component.html',
     styleUrl: './ticketing-container.component.scss',
-    imports: [CommonModule, TicketComponent, CreateTicketFormComponent]
+    imports: [CommonModule, TicketComponent, CreateTicketFormComponent],
+    standalone: true
 })
 
 export class TicketingContainerComponent implements OnInit {

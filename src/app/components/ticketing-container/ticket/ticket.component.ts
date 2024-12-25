@@ -5,7 +5,8 @@ import { Ticket } from '../../../types';
     selector: 'app-ticket',
     imports: [],
     templateUrl: './ticket.component.html',
-    styleUrl: './ticket.component.scss'
+    styleUrl: './ticket.component.scss',
+    standalone: true
 })
 
 export class TicketComponent implements OnInit{

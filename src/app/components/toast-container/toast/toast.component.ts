@@ -5,7 +5,8 @@ import { Toast } from '../toast-container.component';
     selector: 'app-toast',
     imports: [],
     templateUrl: './toast.component.html',
-    styleUrl: './toast.component.scss'
+    styleUrl: './toast.component.scss',
+    standalone: true
 })
 export class ToastComponent implements OnInit{
   @Input()

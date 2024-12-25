@@ -9,7 +9,8 @@ import { LayoutComponent } from "./components/layout/layout.component";
         LayoutComponent
     ],
     templateUrl: './app.component.html',
-    styleUrl: './app.component.scss'
+    styleUrl: './app.component.scss',
+    standalone: true
 })
 export class AppComponent {
   title = 'mentallyincorporated';

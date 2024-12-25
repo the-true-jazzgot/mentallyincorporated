@@ -18,7 +18,8 @@ export interface Toast {
     selector: 'app-toast-container',
     imports: [CommonModule, ToastComponent],
     templateUrl: './toast-container.component.html',
-    styleUrl: './toast-container.component.scss'
+    styleUrl: './toast-container.component.scss',
+    standalone: true
 })
 export class ToastContainerComponent implements OnInit{
   toasts$!:Observable<Toast[]>

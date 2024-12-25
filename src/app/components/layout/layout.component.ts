@@ -6,7 +6,8 @@ import { ToastContainerComponent } from "../toast-container/toast-container.comp
     selector: 'app-layout',
     imports: [TicketingContainerComponent, ToastContainerComponent],
     templateUrl: './layout.component.html',
-    styleUrl: './layout.component.scss'
+    styleUrl: './layout.component.scss',
+    standalone: true
 })
 export class LayoutComponent {
 
