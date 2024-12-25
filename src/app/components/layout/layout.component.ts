@@ -3,11 +3,10 @@ import { TicketingContainerComponent } from "../ticketing-container/ticketing-co
 import { ToastContainerComponent } from "../toast-container/toast-container.component";
 
 @Component({
-  selector: 'app-layout',
-  standalone: true,
-  imports: [TicketingContainerComponent, ToastContainerComponent],
-  templateUrl: './layout.component.html',
-  styleUrl: './layout.component.scss'
+    selector: 'app-layout',
+    imports: [TicketingContainerComponent, ToastContainerComponent],
+    templateUrl: './layout.component.html',
+    styleUrl: './layout.component.scss'
 })
 export class LayoutComponent {
 

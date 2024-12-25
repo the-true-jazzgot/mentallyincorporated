@@ -15,11 +15,10 @@ export interface Toast {
 }
 
 @Component({
-  selector: 'app-toast-container',
-  standalone: true,
-  imports: [CommonModule, ToastComponent],
-  templateUrl: './toast-container.component.html',
-  styleUrl: './toast-container.component.scss'
+    selector: 'app-toast-container',
+    imports: [CommonModule, ToastComponent],
+    templateUrl: './toast-container.component.html',
+    styleUrl: './toast-container.component.scss'
 })
 export class ToastContainerComponent implements OnInit{
   toasts$!:Observable<Toast[]>

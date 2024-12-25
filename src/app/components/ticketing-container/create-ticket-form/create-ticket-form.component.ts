@@ -11,11 +11,10 @@ import { AppStore } from '../../../store/app.store';
 import { createTicket } from '../../../store/tickets/ticket.actions';
 
 @Component({
-  selector: 'app-create-ticket-form',
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './create-ticket-form.component.html',
-  styleUrl: './create-ticket-form.component.scss'
+    selector: 'app-create-ticket-form',
+    imports: [CommonModule, ReactiveFormsModule],
+    templateUrl: './create-ticket-form.component.html',
+    styleUrl: './create-ticket-form.component.scss'
 })
 
 export class CreateTicketFormComponent implements OnInit{

@@ -13,7 +13,6 @@ import { Ticket } from '../../types';
 
 @Component({
     selector: 'app-ticketing-container',
-    standalone: true,
     templateUrl: './ticketing-container.component.html',
     styleUrl: './ticketing-container.component.scss',
     imports: [CommonModule, TicketComponent, CreateTicketFormComponent]
