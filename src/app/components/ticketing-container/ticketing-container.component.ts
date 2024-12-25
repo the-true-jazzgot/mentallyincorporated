@@ -20,7 +20,7 @@ import { Ticket } from '../../types';
 })
 
 export class TicketingContainerComponent implements OnInit {
-  public allTickets$:Observable<Ticket[]> = this.store.select(selectAllTickets);
+  public allTickets$!:Observable<Ticket[]>;
   
   constructor(
     private usersService: UsersService, 
@@ -29,6 +29,7 @@ export class TicketingContainerComponent implements OnInit {
   ) {};
 
   ngOnInit() {
+    this.allTickets$ = this.store.select(selectAllTickets);
     // this.ticketService.getTickets().subscribe((tickets: Ticket[]) => this.tickets = tickets);
     this.store.dispatch(fetchTickets());
   }

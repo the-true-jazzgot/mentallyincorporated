@@ -19,7 +19,7 @@ import { createTicket } from '../../../store/tickets/ticket.actions';
 })
 
 export class CreateTicketFormComponent implements OnInit{
-  private activeUser$:Observable<RUser> = this.store.select(selectUserData)
+  private activeUser$!:Observable<RUser>;
   private activeUser!:RUser;
   users!: User[];
 
@@ -31,6 +31,7 @@ export class CreateTicketFormComponent implements OnInit{
 
   ngOnInit(){
     this.users = this.usersService.getAllUsers();
+    this.activeUser$ = this.store.select(selectUserData);
     const sub = this.activeUser$.subscribe(user => this.activeUser = user);
     sub.unsubscribe();
   }
